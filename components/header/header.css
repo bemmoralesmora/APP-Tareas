@@ -1,0 +1,24 @@
+.header{
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+
+    border: 1px solid black;
+
+    background-image: url("https://c.wallhere.com/photos/a1/d5/pixel_art_digital_art_pixelated_pixels-1499883.jpg!d");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header img {
+    width: 7rem;
+    object-fit: cover;
+}
+
+.header h1{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
