@@ -1,0 +1,10 @@
+.dom{
+    max-width: 375px;
+    margin: auto;
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
