@@ -1,70 +1,55 @@
-import { lista } from "./data.js";
+import { listas } from "./data.js";
 
-function item (){
+function item() {
+    let { lista_desing, lista_personal, lista_house } = listas();
+    
     let item = document.createElement('section');
-    item.className = "item"
+    item.className = "item";
 
     let titulo = document.createElement('h1');
     titulo.innerText = "Today";
-    titulo.className = "titulo-c"
+    titulo.className = "titulo-c";
     item.appendChild(titulo);
 
-    let cont_desing = document.createElement('div');
-    cont_desing.className = "cont-desing";
-    cont_desing.innerHTML = `
-        <h1>DESING</h1>
-        <label for="">
-            <div>
-            <input type="checkbox">
-            <h1 class="h1-1">Create icons for a dashboard</h1>
-        </div>
-            <div>
-            <input type="checkbox">
-            <h1 class="h1-1">Prepare a design presentation</h1>
-        </div>
+    function crearCategoria(titulo, tareas) {
+        let container = document.createElement('div');
 
-        </label>
-    `;
-    item.appendChild(cont_desing);
+        // Asigna una clase CSS al contenedor 'div' con el nombre de la categoría en minúsculas.
+        // Ejemplo: si 'titulo' es "DESING", la clase será "cont-design".
+        container.className = `cont-${titulo.toLowerCase()}`;
 
-    let cont_personal = document.createElement('div');
-    cont_personal.className = "cont-personal";
-    cont_personal.innerHTML = `
-        <h1>PERSONAL</h1>
-        <label for="">
-            <div>
-            <input type="checkbox">
-            <h1 class="h1-1">Stretch for 15 minutes</h1>
-        </div>
-            <div>
-            <input type="checkbox">
-            <h1 class="h1-1">Plan your meal</h1>
-        </div>
-        <div>
-            <input type="checkbox">
-            <h1 class="h1-1">Review daily goals before sleeping. <br>Add some new if time permits</h1>
-        </div>
+        // Establece el contenido HTML dentro del contenedor 'div'. 
+        // Inserta un elemento 'h1' con el nombre de la categoría en mayúsculas.
+        // Ejemplo: si 'titulo' es "DESING", el HTML será <h1>DESING</h1>.
+        container.innerHTML = `<h1>${titulo.toUpperCase()}</h1>`;
+        
+        let label = document.createElement('label');
+        
+        tareas.forEach(tarea => {
+            let div = document.createElement('div');
+            
+            let checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            
+            let nombreTarea = document.createElement('h1');
+            nombreTarea.className = "h1-1";
+            nombreTarea.innerText = tarea;
+            
+            div.appendChild(checkbox);
+            div.appendChild(nombreTarea);
+            label.appendChild(div);
+        });
+        
+        container.appendChild(label);
+        return container;
+    }
 
-        </label>
-    `;
-    item.appendChild(cont_personal);
-
-    let cont_house = document.createElement('div');
-    cont_house.className = "cont-house"
-    cont_house.innerHTML = `
-        <h1>HOUSE</h1>
-        <label for="">
-            <div>
-            <input type="checkbox">
-            <h1 class="h1-1">Water indoor plants</h1>
-        </div>
-
-        </label>
-    `;
-    item.appendChild(cont_house);
+    item.appendChild(crearCategoria("DESING", lista_desing));
+    item.appendChild(crearCategoria("PERSONAL", lista_personal));
+    item.appendChild(crearCategoria("HOUSE", lista_house));
 
     let add = document.createElement('div');
-    add.className = "add"
+    add.className = "add";
     add.innerHTML = `
         <h1 class="h1-add">Write a task...</h1>
         <button>Add</button>
@@ -74,4 +59,4 @@ function item (){
     return item;
 }
 
-export {item};
+export { item };

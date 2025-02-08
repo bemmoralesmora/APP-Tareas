@@ -1,10 +1,20 @@
-let lista = [
-    "Create icons for a dashboard",
-    "Prepare a design presentation",
-    "Stretch for 15 minutes",
-    "Plan your meal",
-    "Review daily goals before sleeping. Add some new if time permits",
-    "Water indoor plants"
-]
+function listas() {
+    const lista_desing = [
+        "Create icons for a dashboard",
+        "Prepare a design presentation"
+    ];
 
-export { lista }
+    const lista_personal = [
+        "Stretch for 15 minutes",
+        "Plan your meal",
+        "Review daily goals before sleeping."
+    ];
+
+    const lista_house = [
+         "Water indoor plants",
+    ];
+
+    return {lista_desing, lista_personal, lista_house};
+}
+
+export { listas };

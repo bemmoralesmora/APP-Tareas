@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     padding: 10px;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .titulo-c{
@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: column;
     justify-self: center;
+
 
     padding: 1rem;
     
@@ -67,7 +68,7 @@
 
     display: flex;
     flex-direction: column;
-    justify-self: center
+    justify-self: center;
 
 }
 
@@ -109,7 +110,7 @@
 
     display: flex;
     flex-direction: column;
-    justify-self: center
+    justify-self: center;
 
 }
 
