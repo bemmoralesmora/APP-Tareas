@@ -1,4 +1,4 @@
-.item{
+.item {
     width: 100%;
     max-width: 375px;
     height: 60rem;
@@ -10,141 +10,65 @@
     gap: 1rem;
 }
 
-.titulo-c{
+.titulo-c {
     font-size: 35px;
     font-weight: 600;
-
 }
 
-.cont-desing{
+
+.label{
+    width: 100%;
+    height: 4rem;
+    border: 0.5px solid black;
+    padding: 5px;
+    border-radius: 1rem;
+}
+
+.cont-desing,
+.cont-personal,
+.cont-house {
     width: 340px;
-    height: 15rem;
-    gap: 2rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-
-
     padding: 1rem;
-    
-}
-
-.cont-desing h1{
-    color: #D1A28B;
-
-}
-
-.cont-desing label{
+    gap: 1rem; /* Reducimos el gap para mejor alineación */
     display: flex;
     flex-direction: column;
-    align-items: start;
-    gap: 2rem;
-
 }
 
-.cont-desing div{
+.cont-desing h1,
+.cont-personal h1,
+.cont-house h1 {
+    color: #D1A28B;
+}
+
+/* Estilos comunes para los labels */
+.cont-desing label,
+.cont-personal label,
+.cont-house label {
     display: flex;
-    align-items: center;
-    gap: 5px;
+    flex-direction: row; /* Cambiamos a fila para alinear en horizontal */
+    align-items: center; /* Centramos verticalmente */
+    gap: 10px; /* Espacio entre el checkbox y el texto */
 }
 
-.cont-desing label input{
-    width: 2rem;
-    height: 2rem;
+/* Estilos para los checkboxes */
+.cont-desing label input,
+.cont-personal label input,
+.cont-house label input {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
-.cont-desing label .h1-1{
+/* Estilos para el texto de la tarea */
+.cont-desing label .h1-1,
+.cont-personal label .h1-1,
+.cont-house label .h1-1 {
     font-weight: 500;
     font-size: 17px;
     color: black;
+    margin: 0; /* Eliminamos márgenes para mejor alineación */
 }
 
-.cont-personal{
-    width: 340px;
-    height: 20rem;
-    padding: 1rem;
-    gap: 2rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-
-}
-
-.cont-personal h1{
-    color: #D1A28B;
-
-}
-
-.cont-personal label{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 2rem;
-
-}
-
-.cont-personal div{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.cont-personal label input{
-    width: 2rem;
-    height: 2rem;
-}
-
-.cont-personal label .h1-1{
-    font-weight: 500;
-    font-size: 17px;
-    color: black;
-}
-
-.cont-house{
-    width: 340px;
-    height: 10rem;
-    padding: 1rem;
-    gap: 2rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-
-}
-
-.cont-house h1{
-    color: #D1A28B;
-
-}
-
-.cont-house label{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 2rem;
-
-}
-
-.cont-house div{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.cont-house label input{
-    width: 2rem;
-    height: 2rem;
-}
-
-.cont-house label .h1-1{
-    font-weight: 500;
-    font-size: 17px;
-    color: black;
-}
-
-.add{
+.add {
     width: 340px;
     height: 5rem;
     padding: 1rem;
@@ -155,20 +79,15 @@
     justify-content: space-between;
 }
 
-.add .h1-add{
+.add .h1-add {
     font-size: 18px;
     font-weight: 500;
 }
 
-.add button{
+.add button {
     width: 6rem;
     height: 4rem;
     color: white;
     background-color: black;
     border-radius: 5px;
 }
-
-
-
-
-

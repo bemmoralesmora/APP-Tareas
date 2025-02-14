@@ -1,8 +1,9 @@
 import { listas } from "./data.js";
+import { completarTarea } from "./completarTarea.js"; // Importamos la función
 
 function item() {
     let { lista_desing, lista_personal, lista_house } = listas();
-    
+
     let item = document.createElement('section');
     item.className = "item";
 
@@ -13,34 +14,31 @@ function item() {
 
     function crearCategoria(titulo, tareas) {
         let container = document.createElement('div');
-
-        // Asigna una clase CSS al contenedor 'div' con el nombre de la categoría en minúsculas.
-        // Ejemplo: si 'titulo' es "DESING", la clase será "cont-design".
         container.className = `cont-${titulo.toLowerCase()}`;
+        container.innerHTML = `<h1>${titulo.toUpperCase()}</h1>`; // Título de la categoría
 
-        // Establece el contenido HTML dentro del contenedor 'div'. 
-        // Inserta un elemento 'h1' con el nombre de la categoría en mayúsculas.
-        // Ejemplo: si 'titulo' es "DESING", el HTML será <h1>DESING</h1>.
-        container.innerHTML = `<h1>${titulo.toUpperCase()}</h1>`;
-        
-        let label = document.createElement('label');
-        
         tareas.forEach(tarea => {
-            let div = document.createElement('div');
-            
+            // Crear un contenedor para cada tarea
+            let label = document.createElement('label'); // Cada tarea tiene su propio label
+            label.className = "label";
+
             let checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
-            
+
             let nombreTarea = document.createElement('h1');
             nombreTarea.className = "h1-1";
             nombreTarea.innerText = tarea;
-            
-            div.appendChild(checkbox);
-            div.appendChild(nombreTarea);
-            label.appendChild(div);
+
+            // Agregar el checkbox y el nombre de la tarea al label
+            label.appendChild(checkbox);
+            label.appendChild(nombreTarea);
+
+            // Asignar el evento de clic al label
+            label.addEventListener('click', completarTarea);
+            // Agregar el label al contenedor de la categoría
+            container.appendChild(label);
         });
-        
-        container.appendChild(label);
+
         return container;
     }
 
