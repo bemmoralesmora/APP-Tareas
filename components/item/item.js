@@ -19,7 +19,7 @@ function item() {
 
         tareas.forEach(tarea => {
             // Crear un contenedor para cada tarea
-            let label = document.createElement('label'); // Cada tarea tiene su propio label
+            let label = document.createElement('label');
             label.className = "label";
 
             let checkbox = document.createElement('input');
@@ -29,13 +29,12 @@ function item() {
             nombreTarea.className = "h1-1";
             nombreTarea.innerText = tarea;
 
-            // Agregar el checkbox y el nombre de la tarea al label
             label.appendChild(checkbox);
             label.appendChild(nombreTarea);
 
-            // Asignar el evento de clic al label
-            label.addEventListener('click', completarTarea);
-            // Agregar el label al contenedor de la categoría
+            // Asignar el evento de cambio al checkbox
+            checkbox.addEventListener('change', completarTarea);
+
             container.appendChild(label);
         });
 
