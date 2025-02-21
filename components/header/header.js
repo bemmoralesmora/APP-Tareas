@@ -1,4 +1,4 @@
-function header(){
+function Cargarheader(){
     let header = document.createElement('header');
     header.className = "header";
 
@@ -15,4 +15,4 @@ function header(){
 
 }
 
-export{header}
+export{Cargarheader}
