@@ -1,4 +1,4 @@
-function listas() {
+function tareas() {
     const lista_desing = [
         "Create icons for a dashboard",
         "Prepare a design presentation"
@@ -17,4 +17,4 @@ function listas() {
     return {lista_desing, lista_personal, lista_house};
 }
 
-export { listas };
+export { tareas };

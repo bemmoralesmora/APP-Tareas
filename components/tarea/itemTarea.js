@@ -1,7 +1,8 @@
-import { listas } from "./data.js";
-import { completarTarea } from "./completarTarea.js"; // Importamos la función
+import { tareas } from "./data.js";
+import {agregaTarea} from "./formulario/funcionesTarea.js"
+import { completarTarea } from "./funcionesTarea.js"; // Importamos la función
 
-function item() {
+function tarea() {
     let { lista_desing, lista_personal, lista_house } = listas();
 
     let item = document.createElement('section');
@@ -56,4 +57,4 @@ function item() {
     return item;
 }
 
-export { item };
+export { tarea };

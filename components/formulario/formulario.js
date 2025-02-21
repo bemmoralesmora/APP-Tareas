@@ -1,6 +1,6 @@
-function formulario(){
+function Cargarformulario(){
     let formulario = document.createElement('footer');
     return formulario;
 }
 
-export {formulario};
+export {Cargarformulario};
