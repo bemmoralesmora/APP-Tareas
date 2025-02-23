@@ -1,60 +1,22 @@
-import { tareas } from "./data.js";
-import {agregaTarea} from "./formulario/funcionesTarea.js"
-import { completarTarea } from "./funcionesTarea.js"; // Importamos la función
+import { completarTarea } from "./funcionesTarea.js";
 
-function tarea() {
-    let { lista_desing, lista_personal, lista_house } = listas();
+// Función para crear un elemento de tarea
+export function itemTarea(contenido) {
+    let label = document.createElement("label");
+    label.className = "label";
 
-    let item = document.createElement('section');
-    item.className = "item";
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
 
-    let titulo = document.createElement('h1');
-    titulo.innerText = "Today";
-    titulo.className = "titulo-c";
-    item.appendChild(titulo);
+    let nombreTarea = document.createElement("h1");
+    nombreTarea.className = "h1-1";
+    nombreTarea.innerText = contenido;
 
-    function crearCategoria(titulo, tareas) {
-        let container = document.createElement('div');
-        container.className = `cont-${titulo.toLowerCase()}`;
-        container.innerHTML = `<h1>${titulo.toUpperCase()}</h1>`; // Título de la categoría
+    // Evento para tachar la tarea al marcar el checkbox
+    checkbox.addEventListener("change", completarTarea);
 
-        tareas.forEach(tarea => {
-            // Crear un contenedor para cada tarea
-            let label = document.createElement('label');
-            label.className = "label";
+    label.appendChild(checkbox);
+    label.appendChild(nombreTarea);
 
-            let checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-
-            let nombreTarea = document.createElement('h1');
-            nombreTarea.className = "h1-1";
-            nombreTarea.innerText = tarea;
-
-            label.appendChild(checkbox);
-            label.appendChild(nombreTarea);
-
-            // Asignar el evento de cambio al checkbox
-            checkbox.addEventListener('change', completarTarea);
-
-            container.appendChild(label);
-        });
-
-        return container;
-    }
-
-    item.appendChild(crearCategoria("DESING", lista_desing));
-    item.appendChild(crearCategoria("PERSONAL", lista_personal));
-    item.appendChild(crearCategoria("HOUSE", lista_house));
-
-    let add = document.createElement('div');
-    add.className = "add";
-    add.innerHTML = `
-        <h1 class="h1-add">Write a task...</h1>
-        <button>Add</button>
-    `;
-    item.appendChild(add);
-
-    return item;
+    return label;
 }
-
-export { tarea };

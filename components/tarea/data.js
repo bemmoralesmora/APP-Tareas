@@ -1,20 +1,16 @@
+let listaTareas = [
+    "Create icons for a dashboard",
+    "Prepare a design presentation",
+    "Read a chapter of a book",
+    "Go for a 30-minute walk",
+    "Write in a gratitude journal",
+    "Plan meals for the day",
+    "Practice deep breathing exercises",
+    "Stretch for 15 minutes"
+];
+
 function tareas() {
-    const lista_desing = [
-        "Create icons for a dashboard",
-        "Prepare a design presentation"
-    ];
-
-    const lista_personal = [
-        "Stretch for 15 minutes",
-        "Plan your meal",
-        "Review daily goals before sleeping."
-    ];
-
-    const lista_house = [
-         "Water indoor plants",
-    ];
-
-    return {lista_desing, lista_personal, lista_house};
+    return listaTareas;
 }
 
 export { tareas };
