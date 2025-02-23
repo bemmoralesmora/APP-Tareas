@@ -1,6 +1,7 @@
+// src/index.js
 import { Cargarheader } from "./components/header/header.js";
-import { cargarTarea} from "./components/tarea/tareas.js"
-import { Cargarformulario } from "./components/formulario/formulario.js";
+import { cargarFormulario } from "./components/formulario/formulario.js";
+import { cargarTarea } from "./components/tarea/tareas.js";
 
 function cargaDom() {
     let Dom = document.querySelector("#root");
@@ -8,7 +9,7 @@ function cargaDom() {
 
     Dom.appendChild(Cargarheader());
     Dom.appendChild(cargarTarea());
-    Dom.appendChild(Cargarformulario());
+    Dom.appendChild(cargarFormulario());
 }
 
 cargaDom();
