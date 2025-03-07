@@ -1,24 +1,19 @@
 import { Cargarheader } from "./components/header/header.js";
 import { cargarFormulario } from "./components/formulario/formulario.js";
-import { consultarTareas } from "./components/tarea/tareas.js";
+import { cargarTarea } from "./components/tarea/tareas.js";
 
-function cargarDOM() {
-    // Obtener el contenedor principal
-    let DOM = document.getElementById("root");
+function cargaDom() {
+    let Dom = document.querySelector("#root");
+    Dom.className = "dom";
 
     // Añadir el header
-    DOM.appendChild(Cargarheader());
+    Dom.appendChild(Cargarheader());
 
-    // Crear el contenedor de tareas
-    let contenedorTareas = document.createElement('div');
-    contenedorTareas.id = "tareas-container";
-    DOM.appendChild(contenedorTareas);
+    // Añadir la sección de tareas
+    Dom.appendChild(cargarTarea());
 
     // Añadir el formulario
-    DOM.appendChild(cargarFormulario());
-
-    // Consultar las tareas al backend
-    consultarTareas();
+    Dom.appendChild(cargarFormulario());
 }
 
-cargarDOM();
+cargaDom();
