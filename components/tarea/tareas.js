@@ -22,9 +22,29 @@ function cargarTareasDesdeDB(tareas) {
         };
 
         // Creamos el item visual y lo metemos en el contenedor
-        const elementoTarea = itemTarea(tareaFormateada);
+        const elementoTarea = itemTarea(tareaFormateada, index);
         contenedorTareas.appendChild(elementoTarea);
     });
 }
 
-export { cargarTareasDesdeDB };
+// Función para cargar la sección de tareas
+export function cargarTarea() {
+    let section = document.createElement("section");
+    section.className = "item";
+
+    let titulo = document.createElement("h1");
+    titulo.innerText = "Today";
+    titulo.className = "titulo-c";
+    section.appendChild(titulo);
+
+    let container = document.createElement("div");
+    container.className = "cont-lista";
+    container.id = "tareas-container"; // ID corregido
+
+    section.appendChild(container);
+
+    // Cargar tareas iniciales
+    consultarTareas();
+
+    return section;
+}
