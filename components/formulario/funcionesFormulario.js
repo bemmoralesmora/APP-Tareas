@@ -1,20 +1,32 @@
 import { itemTarea } from "../tarea/itemTarea.js";
+import { cargarFormulario } from "./formulario.js";
 
 export function cargarTareas(input) {
-    const nuevaTarea = input.value.trim(); 
+    // Obtener el valor del input
+    const nombreTarea = input.value.trim(); // Elimina espacios en blanco al inicio y final
 
-    if (nuevaTarea !== "") {
-        // Agregamos la nueva tarea al array de tareas
-        tareas().push(nuevaTarea);
-
-        // Limpiamos el input
-        input.value = "";
-
-        // Obtenemos el contenedor de tareas
-        const contenedorTareas = document.querySelector(".cont-lista");
-
-        // Creamos un nuevo elemento de tarea y lo agregamos al contenedor
-        const nuevaTareaElemento = itemTarea(nuevaTarea);
-        contenedorTareas.appendChild(nuevaTareaElemento);
+    // Validar que el input no esté vacío
+    if (!nombreTarea) {
+        alert("Por favor, escribe una tarea.");
+        return;
     }
+
+    // Enviar la tarea al backend
+    fetch('http://localhost:3000/agregar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nombre_tarea: nombreTarea, // Envía el valor del input
+            estado: 'pendiente' // Estado por defecto
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Tarea agregada:', data);
+        input.value = ''; // Limpiar el input después de agregar la tarea
+        cargarTareasDesdeDB(); // Recargar la lista de tareas desde la base de datos
+    })
+    .catch(error => console.error('Error al agregar tarea:', error));
 }
