@@ -1,5 +1,4 @@
-import { itemTarea } from "../tarea/itemTarea.js";
-import { cargarFormulario } from "./formulario.js";
+import { agregarTareaAlDOM } from "../tarea/tareas.js";
 
 export function cargarTareas(input) {
     // Obtener el valor del input
@@ -11,22 +10,32 @@ export function cargarTareas(input) {
         return;
     }
 
+    // Obtener el usuario_id del localStorage
+    const usuario_id = localStorage.getItem('usuario_id');
+    if (!usuario_id) {
+        alert("Usuario no identificado. Por favor, inicia sesión.");
+        return;
+    }
+
     // Enviar la tarea al backend
-    fetch('http://localhost:3000/agregar', {
+    fetch('http://localhost:3000/tareas', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            nombre_tarea: nombreTarea, // Envía el valor del input
-            estado: 'pendiente' // Estado por defecto
+            nombre: nombreTarea, // Envía el valor del input
+            estado: 'pendiente', // Estado por defecto
+            usuario_id: usuario_id // Incluir el usuario_id
         })
     })
     .then(response => response.json())
     .then(data => {
         console.log('Tarea agregada:', data);
         input.value = ''; // Limpiar el input después de agregar la tarea
-        cargarTareasDesdeDB(); // Recargar la lista de tareas desde la base de datos
+
+        // Agregar la tarea al DOM
+        agregarTareaAlDOM(data);
     })
     .catch(error => console.error('Error al agregar tarea:', error));
 }
