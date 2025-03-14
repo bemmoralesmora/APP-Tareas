@@ -1,4 +1,4 @@
-import { cargaDom } from "../../index.js";
+import { cargaDom } from "../../index.js"; // Importar la función cargaDom
 import { cargarSignup } from "../signup_form/signup.js";
 
 function Login() {
@@ -47,11 +47,11 @@ function Login() {
     // Manejar el evento de envío del formulario de login
     form.addEventListener('submit', async function(event) {
         event.preventDefault(); // Evitar que el formulario se envíe
-    
+
         // Obtener los valores del formulario
         const usuario = inputUsuario.value;
         const contraseña = inputPassword.value;
-    
+
         try {
             const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
@@ -60,15 +60,15 @@ function Login() {
                 },
                 body: JSON.stringify({ nombre: usuario, contraseña }),
             });
-    
+
             const data = await response.json();
             if (response.ok) {
                 console.log('Login exitoso:', data);
                 const usuario_id = data.usuario.id; // Obtener el ID del usuario
-    
+
                 // Guardar el ID del usuario en localStorage
                 localStorage.setItem('usuario_id', usuario_id);
-    
+
                 // Cargar el contenido principal
                 cargaDom();
             } else {
